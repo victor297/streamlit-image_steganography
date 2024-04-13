@@ -60,7 +60,8 @@ def decode_data(image):
 
     data_bin = ""
     for pixel in pixels:
-        data_bin += bin(pixel[0])[-1]  # Extracting the least significant bit of the red channel
+        # Extracting the least significant bit of the red channel
+        data_bin += bin(pixel[0])[-1]
 
     data = ""
     for i in range(0, len(data_bin), 8):
@@ -83,13 +84,18 @@ def show_encoded_image(image_path):
 
     img_str = base64.b64encode(buffered.getvalue()).decode()
 
-    href = f'<a href="data:file/png;base64,{img_str}" download="{image_path}">Download Encoded Image</a>'
+    href = ('<a href="data:file/png;base64,' + img_str + '" '
+            'download="' + image_path + '">Download Encoded Image</a>')
 
     st.markdown(href, unsafe_allow_html=True)
 
 
 # Streamlit GUI setup
-st.set_page_config(page_title="Image Steganography", page_icon=":shushing_face:", layout="wide")
+st.set_page_config(
+    page_title="Image Steganography",
+    page_icon=":shushing_face:",
+    layout="wide"
+)
 st.title("Hide your secrets!!!🤫")
 
 st.markdown("---")
@@ -119,7 +125,9 @@ with col3:
 with col4:
     st.header("Decoded Image")
 
-decode_image_file = col3.file_uploader("Choose an Encoded Image", type=["png", "jpg", "jpeg"])
+decode_image_file = col3.file_uploader(
+    "Choose an Encoded Image", type=["png", "jpg", "jpeg"]
+)
 
 if decode_image_file:
     decode_image = Image.open(decode_image_file)
