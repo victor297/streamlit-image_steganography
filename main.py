@@ -97,7 +97,8 @@ st.set_page_config(
     layout="wide"
 )
 st.subheader("🤫 A secure based data system with least significant bit using image steganography")
-st.write("By omar ismail muazu  uil/pg2022/0697")
+st.write("By omar ismail muazu")
+st.write("uil/pg2022/0697")
 
 st.markdown("---")
 
