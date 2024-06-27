@@ -96,7 +96,7 @@ st.set_page_config(
     page_icon=":shushing_face:",
     layout="wide"
 )
-st.title("🤫 A secure based data system with least significant bit using image steganography")
+st.subtitle("🤫 A secure based data system with least significant bit using image steganography")
 st.write("By omar ismail muazu  uil/pg2022/0697")
 
 st.markdown("---")
